@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recycling Centers Map</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        #map {
+            height: 100vh;
+            width: 100%;
+        }
+        body, html {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        // Initialize the map and set the view to Trichy, India
+        var map = L.map('map').setView([10.7905, 78.7047], 13);
+
+        // Add OpenStreetMap tiles
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Add markers for recycling centers
+        L.marker([10.7992, 78.6856]).addTo(map).bindPopup('Recycling Center 1');
+        L.marker([10.8115, 78.7018]).addTo(map).bindPopup('Recycling Center 2');
+        L.marker([10.7805, 78.7124]).addTo(map).bindPopup('Recycling Center 3');
+    </script>
+</body>
+</html>
